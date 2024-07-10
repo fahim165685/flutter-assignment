@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_assignment/app/app_pkg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,7 @@ class HomeDurationWidget extends StatelessWidget {
                 SvgPicture.asset(AssetsConstants.calendarOutlineIcon,width: 14,height: 14,),
 
                 Dimens.spaceW6,
-                Text("১ই জানুয়ারি ২০২৪ - ৩১ই জানুয়ারি ২০৩০", style: Get.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w500),),
+                Expanded(child: Text("১ই জানুয়ারি ২০২৪ - ৩১ই জানুয়ারি ২০৩০", style: Get.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w500),)),
             ],),
 
             Dimens.spaceH10,
@@ -46,3 +47,6 @@ class HomeDurationWidget extends StatelessWidget {
     ],);
   }
 }
+
+
+

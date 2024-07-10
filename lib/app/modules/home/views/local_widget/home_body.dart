@@ -9,11 +9,13 @@ class HomeBody extends StatelessWidget {
     return ListView(
       padding: Dimens.pagePadding.copyWith(top: Dimens.space24),
       children: [
-
         const HomePageProfileWidget(),
-        Dimens.spaceH20,
 
+        Dimens.spaceH20,
         const HomeDurationWidget(),
+
+        Dimens.spaceH20,
+        const HomeMenuWidget(),
 
       ],
     );

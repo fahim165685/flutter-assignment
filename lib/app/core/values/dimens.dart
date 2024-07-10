@@ -18,7 +18,7 @@ abstract class Dimens {
   static double fontSizeExtraLarge = 33;
 
   //App Padding
-  static const pagePadding = EdgeInsets.symmetric(vertical: 8, horizontal: 24);
+  static const pagePadding = EdgeInsets.symmetric(vertical: 24, horizontal: 24);
   static const cardPadding = EdgeInsets.all(12);
   static const pagePaddingH16 = EdgeInsets.symmetric(horizontal: 16);
   static const pagePaddingH24 = EdgeInsets.symmetric(horizontal: 24,vertical: 12);

@@ -1,6 +1,5 @@
+import 'package:flutter_assignment/app/app_pkg.dart';
 import 'package:get/get.dart';
-
-import '../controllers/home_controller.dart';
 
 class HomeBinding extends Bindings {
   @override

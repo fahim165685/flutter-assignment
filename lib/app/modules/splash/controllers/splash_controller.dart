@@ -21,7 +21,7 @@ class SplashController extends GetxController with GetTickerProviderStateMixin {
   void route(){
     Future.delayed(const Duration(seconds: 3),(){
       animationController.dispose();
-      Get.offAllNamed(Routes.HOME);
+      Get.offAllNamed(Routes.DASHBOARD);
 
     });
   }

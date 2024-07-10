@@ -8,19 +8,20 @@ import '../../../app_pkg.dart';
 
 FutureOr<Request> requestInterceptor(request) async {
   final token = StorageService.read(StorageConstants.accessToken);
-  logInfo(token);
+  if(token != null){
+    logInfo("Bearer Token =>$token");
+  }
 
   if (token != null) {
     request.headers['X-Requested-With'] = 'XMLHttpRequest';
     request.headers['Authorization'] = 'Bearer $token';
   }
-  if(request.method!='get'){
+  if(request.method != 'get'){
     EasyLoading.show(status: 'loading...');
   }
-  requestlLogger(request);
+  requestLogger(request);
   return request;
 }
-
-void requestlLogger(Request request) {
-  debugPrint('Url====: ${request.method} ${request.url}\n');
+void requestLogger(Request request) {
+  debugPrint("====> Request Url ${request.method} ${request.url}\n");
 }

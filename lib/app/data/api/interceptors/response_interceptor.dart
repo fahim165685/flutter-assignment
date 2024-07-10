@@ -10,8 +10,10 @@ import '../../../app_pkg.dart';
 
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
-  logData('Response received for ${request.url}: ${response.statusCode} ::');
-  EasyLoading.dismiss();
+  logData('Response received for ${request.url}::Status Code ${response.statusCode}');
+  if(EasyLoading.isShow){
+    EasyLoading.dismiss();
+  }
   responseLogger(response);
   // if (response.statusCode != 200||response.statusCode != 201) {
   //   // handleErrorStatus(response);
@@ -24,8 +26,6 @@ FutureOr<dynamic> responseInterceptor(
 void handleErrorStatus(Response response) {
   switch (response.statusCode) {
     case 400:
-    // final message = ErrorResponse.fromJson(response.body);
-    // CommonWidget.toast(message.error);
       logInfo("response body ${response.body}");
       break;
     default:
@@ -35,10 +35,7 @@ void handleErrorStatus(Response response) {
 }
 
 void responseLogger(Response response) {
-  if(response.statusCode==401){
-    //Todo Add  LOGIN Page
-   // Get.toNamed(Routes.LOGIN);
-  }
+  if(response.statusCode==401){}
   debugPrint('Status Code: ${response.statusCode}\n');
   debugPrint('Data: ${response.bodyString?.toString() ?? ''}');
 }

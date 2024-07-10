@@ -4,16 +4,26 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get_storage/get_storage.dart';
 import 'app/app_pkg.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   await GetStorage.init();
   await DependencyInjection.init();
-  runApp(
-    const MyApp(),
-  );
+  await initializeDateFormatting();
+  runApp(const MyApp());
   configLoading();
+
+  ErrorWidget.builder = (FlutterErrorDetails details) => Center(
+    child: SafeArea(
+      child: Container(
+        padding:const EdgeInsets.all(10),
+        decoration: BoxDecoration(color: Colors.amberAccent.shade400, borderRadius: BorderRadius.circular(12)),
+        child: Text(details.exception.toString()),
+      ),
+    ),
+  );
 }
 
 void configLoading() {

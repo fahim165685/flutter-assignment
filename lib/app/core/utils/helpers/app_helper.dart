@@ -100,6 +100,10 @@ class AppHelper{
     return colors[index % colors.length ];
   }
 
+  static Gradient getRandomGradient({required int index, required List<Gradient> colors, }) {
+    return colors[index % colors.length ];
+  }
+
   static String convertToBangla(String input) {
     const english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const bangla = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
@@ -108,6 +112,7 @@ class AppHelper{
     }
     return input;
   }
+
   }
 
 

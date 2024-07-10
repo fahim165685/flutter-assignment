@@ -26,6 +26,7 @@ class AssetsConstants {
 
   static const String arrowLeftIcon = "assets/icons/arrow_left_icon.svg";
   static const String altArrowRightIcon = "assets/icons/alt_arrow_right_icon.svg";
+  static const String clockCircleIcon = "assets/icons/clock_circle_icon.svg";
 
   //SVG Image
   static const String doneSVGImage = "assets/images/done_image.svg";

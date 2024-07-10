@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment/app/app_pkg.dart';
-import 'package:flutter_assignment/app/global_widgets/custom_image.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
