@@ -32,6 +32,7 @@ void configLoading() {
     ..loadingStyle = EasyLoadingStyle.custom
     ..radius = 10.0
     ..backgroundColor = ColorConstants.whiteColor
+    ..indicatorColor = ColorConstants.primaryColor
     ..textColor = ColorConstants.blackColor
     ..boxShadow = [BoxShadow(color: ColorConstants.blackColor.withOpacity(0.16),blurRadius: 6)]
     ..userInteractions = false

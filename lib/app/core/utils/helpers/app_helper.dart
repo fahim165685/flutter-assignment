@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../../../app_pkg.dart';
@@ -17,17 +20,23 @@ class AppHelper{
                 headerBackgroundColor:Get.theme.primaryColor,
                 headerForegroundColor: Colors.white,
                 backgroundColor: Colors.white,
+                yearStyle: GoogleFonts.roboto(color: ColorConstants.darkGrayColor, fontSize:Dimens.fontSizeMedium,fontWeight: FontWeight.w400),
+                dayStyle: GoogleFonts.roboto(color: ColorConstants.darkGrayColor, fontSize:Dimens.fontSizeDefault,fontWeight: FontWeight.w400),
+                weekdayStyle: GoogleFonts.roboto(color: ColorConstants.gray300Color, fontSize:Dimens.fontSizeDefault,fontWeight: FontWeight.w400),
+              ),
+
+              textTheme: TextTheme(
+                bodyLarge: GoogleFonts.roboto(fontSize: Dimens.fontSizeMedium,fontWeight: FontWeight.w600,color: ColorConstants.blackColor),
+              ),
+              inputDecorationTheme: InputDecorationTheme(
+                isDense: true,
+                labelStyle: GoogleFonts.roboto(color: ColorConstants.darkGrayColor, fontSize:Dimens.fontSizeMedium,fontWeight: FontWeight.w400),
               ),
               colorScheme: ColorScheme.light(
-                primary:Get.theme.primaryColor, // <-- SEE HERE
-                onPrimary: Colors.white, // <-- SEE HERE
-                onSecondary: Get.theme.primaryColor, // <-- SEE HERE
-                secondary: Get.theme.primaryColor, // <-- SEE HERE
-              ),
-              textButtonTheme: const TextButtonThemeData(
-                // style: TextButton.styleFrom(
-                //   primary: Colors.w, // button text color
-                // ),
+                primary:Get.theme.primaryColor,
+                onPrimary: Colors.white,
+                onSecondary: Get.theme.primaryColor,
+                secondary: Get.theme.primaryColor,
               ),
             ),
             child: child!,
@@ -36,7 +45,6 @@ class AppHelper{
         context: Get.overlayContext!,
         initialDate: DateTime.now(),
         firstDate: DateTime(1950),
-        //DateTime.now() - not to allow to choose before today.
         lastDate: DateTime(2100));
 
     if (pickedDate != null) {
@@ -55,15 +63,14 @@ class AppHelper{
   static void snackBarForError({String? titleText, required String bodyText, double? topMargin,}) {
     Get.snackbar("", "",
         titleText: const SizedBox.shrink(),
-        messageText: Text(
-          bodyText,
-          style: const TextStyle(color: Colors.white, fontSize: 15),
+        messageText: Center(
+          child: Text( bodyText,
+            style: Get.textTheme.bodySmall?.copyWith(color: ColorConstants.whiteColor)),
         ),
         snackPosition: SnackPosition.TOP,
         maxWidth: Get.width * 0.7,
-        padding: const EdgeInsets.only(bottom: 15, left: 12, right: 10, top: 5),
-        margin: EdgeInsets.only(
-            top: 25, left: Get.width * 0.05, right: Get.width * 0.05),
+        padding: const EdgeInsets.only(bottom: 15, left: 12, right: 10, top: 8),
+        margin: EdgeInsets.only(top: 25, left: Get.width * 0.05, right: Get.width * 0.05),
         borderRadius: 4,
         backgroundColor: Colors.red.withOpacity(0.9),
         colorText: Colors.white);
@@ -111,6 +118,41 @@ class AppHelper{
       input = input.replaceAll(english[i], bangla[i]);
     }
     return input;
+  }
+
+  static Future<void> doneDialog()async {
+    return Get.dialog(
+        PopScope(
+          canPop: false,
+          child: Dialog(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              insetPadding: const EdgeInsets.all(20),
+              elevation: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SvgPicture.asset(AssetsConstants.doneSVGImage,width: 100,height: 100,),
+
+                    Dimens.spaceH20,
+                    Text("নতুন অনুচ্ছেদ সংরক্ষন",style: Get.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w700),),
+
+                    Dimens.spaceH8,
+                    Text("আপনার সময়রেখাতে নতুন অনুচ্ছেদ সংরক্ষণ সম্পুর্ন\nহয়েছে ",
+                      textAlign: TextAlign.center,
+                      style: Get.textTheme.titleMedium?.copyWith(color: ColorConstants.gray300Color, fontWeight: FontWeight.w400),),
+
+                    Dimens.spaceH12,
+                    CustomButton(onTap: () => Get.back(),
+                      padding: EdgeInsets.symmetric(horizontal: 35),
+                      text: "আরও যোগ করুন",borderRadius: BorderRadius.circular(8),)
+
+
+                  ],
+                ),
+              )),
+        ),barrierDismissible: false);
   }
 
   }

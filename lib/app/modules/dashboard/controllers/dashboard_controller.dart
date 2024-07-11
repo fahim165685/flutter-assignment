@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_assignment/app/modules/timeline/timeline.dart';
 import 'package:get/get.dart';
 
 import '../../../app_pkg.dart';
@@ -16,7 +15,7 @@ class DashboardController extends GetxController implements GetxService {
 
      NevBarIconModel(
          icon: AssetsConstants.calendarOutlineIcon,selectedIcon: AssetsConstants.calendarIcon,
-         binding: TimelineBinding(), page: const TimelineView()),
+         binding: ArticleBinding(), page: const ArticleView()),
 
      NevBarIconModel(icon: AssetsConstants.listIcon, page: const SizedBox()),
      NevBarIconModel(icon: AssetsConstants.profileIcon, page: const SizedBox()),

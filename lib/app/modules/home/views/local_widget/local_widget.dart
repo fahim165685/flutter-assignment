@@ -1,4 +1,3 @@
-export 'home_app_bar.dart';
 export 'home_body.dart';
 export 'home_page_profile_widget.dart';
 export 'home_duration_widget.dart';

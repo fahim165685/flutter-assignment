@@ -10,10 +10,13 @@ class ColorConstants {
 
 
   static const Color whiteColor = Color(0xFFFFFFFF);
+  static const Color white50Color = Color(0xFFFDFDFD);
+  static const Color white300Color = Color(0xFFF2F2F2);
   static const Color blackColor = Color(0xFF000000);
 
   static const Color roseRedColor = Color(0xFFFF737A);
   static const Color darkRedColor = Color(0xFFBC2200);
+
 
   static const Color gray25Color = Color(0xFFF5F5F5);
   static const Color gray100Color = Color(0xFFF4F5F6);

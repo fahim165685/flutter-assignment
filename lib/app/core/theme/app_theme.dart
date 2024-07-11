@@ -26,6 +26,7 @@ class AppTheme {
 
     iconTheme: const IconThemeData(color: ColorConstants.blackColor, size: 25.0),
 
+
     appBarTheme: AppBarTheme(
       backgroundColor: ColorConstants.backgroundColor,
       elevation: 0,

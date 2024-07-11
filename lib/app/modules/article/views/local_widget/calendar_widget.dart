@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment/app/app_pkg.dart';
-import 'package:flutter_assignment/app/core/utils/helpers/date_converter.dart';
-import 'package:flutter_assignment/app/modules/timeline/timeline.dart';
 import 'package:get/get.dart';
 
 class CalendarWidget extends StatelessWidget {
    const CalendarWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<TimelineController>(
+    return GetBuilder<ArticleController>(
       builder: (controller) {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
