@@ -17,11 +17,16 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Images
 
-![Image 1](assets/screenshot/screenshot_1.png)
-![Image 2](assets/screenshot/screenshot_2.png)
-![Image 3](assets/screenshot/screenshot_3.png)
-![Image 4](assets/screenshot/screenshot_4.png)
-![Image 5](assets/screenshot/screenshot_5.png)
+<div style="display: flex; justify-content: center;">
+  <img src="assets/screenshot/screenshot_1.png" alt="Image 1" style="margin-right: 10px;" width="250" />
+  <img src="assets/screenshot/screenshot_2.png" alt="Image 2" style="margin-right: 10px;" width="250" />
+  <img src="assets/screenshot/screenshot_3.png" alt="Image 3" width="250" />
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="assets/screenshot/screenshot_4.png" alt="Image 4" style="margin-right: 10px;" width="250" />
+  <img src="assets/screenshot/screenshot_5.png" alt="Image 5" width="250" />
+</div>
 
 ### Video
 
