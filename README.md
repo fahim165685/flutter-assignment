@@ -30,7 +30,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Video
 
-<div style="display: flex; justify-content: center;">
+<div style="display: flex; justify-content: center; align-items: center; height: 300px;">
   <a href="path_to_video.mp4">
     <img src="assets/screenshot/thumbnail.png" alt="Video Thumbnail" width="250" />
   </a>
