@@ -23,5 +23,5 @@ Click the button below to download the project files from Google Drive.
 
 ### Video
 
-[![Watch the video](assets/screenshot/thumbnail.png)](assets/screenshot/video.mp4)
+[![Watch the video](assets/screenshot/thumbnail.png)](https://github.com/user-attachments/assets/0e96aae5-2c71-40a6-84cb-066b9dc1f562)
 
