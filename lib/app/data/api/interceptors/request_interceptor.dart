@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 import 'package:get/get_connect/http/src/request/request.dart';
 
 import '../../../app_pkg.dart';
@@ -20,7 +21,12 @@ FutureOr<Request> requestInterceptor(request) async {
     EasyLoading.show(status: 'loading...');
   }
   requestLogger(request);
-  return request;
+  if(await NetworkUtil.checkInternetConnections()){
+    return request;
+  }else{
+    AppHelper.toast(AppConstants.kNoInternet);
+    throw AppConstants.kNoInternet;
+  }
 }
 void requestLogger(Request request) {
   debugPrint("====> Request Url ${request.method} ${request.url}\n");

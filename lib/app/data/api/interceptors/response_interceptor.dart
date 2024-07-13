@@ -8,8 +8,7 @@ import 'package:get/get_connect/http/src/request/request.dart';
 
 import '../../../app_pkg.dart';
 
-FutureOr<dynamic> responseInterceptor(
-    Request request, Response response) async {
+FutureOr<dynamic> responseInterceptor(Request request, Response response) async {
   logData('Response received for ${request.url}::Status Code ${response.statusCode}');
   if(EasyLoading.isShow){
     EasyLoading.dismiss();

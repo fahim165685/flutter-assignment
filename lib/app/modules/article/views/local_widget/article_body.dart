@@ -47,16 +47,20 @@ class ArticleBody extends StatelessWidget {
                     Text("আজকের কার্যক্রম",style: Get.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w700),),
 
                     Dimens.spaceH10,
-                    ListView.builder(
-                      itemCount: controller.items?.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        final gradient = ColorConstants.faqCardColor(index);
-                        ItemModel? item = controller.items?.elementAt(index);
-                        bool isLastItem = controller.items?.length == (index+1);
-                        return ItemCard(gradient: gradient, item: item, isLastItem: isLastItem,);
-                        },)
+
+                    Visibility(
+                      visible: controller.items.isNotEmpty,
+                        replacement: const EmptyItemWidget(),
+                        child:  ListView.builder(
+                          itemCount: controller.items.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            final gradient = ColorConstants.faqCardColor(index);
+                            ItemModel? item = controller.items.elementAt(index);
+                            bool isLastItem = controller.items.length == (index+1);
+                            return ItemCard(gradient: gradient, item: item, isLastItem: isLastItem,);
+                          },))
 
                   ],
                 ),

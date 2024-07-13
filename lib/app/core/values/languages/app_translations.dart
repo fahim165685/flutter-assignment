@@ -2,6 +2,10 @@ class AppTranslations {
   static const String helloWorld = 'HELLO WORLD';
 
   static const String flutterTask = 'Flutter Task';
+  static const String noInternetConnection = 'No internet connection';
+  static const String checkInternetConnection = 'Please Check Your Internet\nConnection';
+  static const String noItemsFound = 'No items found';
+  static const String retry = 'Retry';
 
 
   static const String signInSubTitle = 'Enter your phone number. We will send you a confirmation code to join.';

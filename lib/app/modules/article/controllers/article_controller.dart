@@ -10,17 +10,25 @@ class ArticleController extends GetxController {
 
   final dashboardController = Get.find<DashboardController>();
 
-  List<ItemModel>? get items => dashboardController.items;
-
   ScrollController scrollController = ScrollController();
-  final today = DateTime.now();
+  DateTime today = DateTime.now();
   List<DateTime> previousWeek = [];
   List<DateTime> nextWeek = [];
   List<DateTime> days = [];
+  List<ItemModel> get items => getItemsForToday();
   List<String> paragraphsCategory = ["অনুচ্ছেদ", "বাক্য", "শব্দ"];
   List<String> districtList = AppConstants.districtList;
   bool getItemLoading = false;
 
+  List<ItemModel> getItemsForToday() {
+    final todayDateOnly = DateTime(today.year, today.month, today.day);
+    return dashboardController.items?.where((item) {
+      if (item.date == null) return false;
+      final itemDate = DateTime.fromMillisecondsSinceEpoch(int.parse(item.date!) * 1000);
+      final itemDateOnly = DateTime(itemDate.year, itemDate.month, itemDate.day);
+      return itemDateOnly == todayDateOnly;
+    }).toList() ?? [];
+  }
 
   @override
   void onInit() {
@@ -29,13 +37,18 @@ class ArticleController extends GetxController {
     nextWeek = List<DateTime>.generate(7, (i) => today.add(Duration(days: i + 1)));
     days = [...previousWeek, today, ...nextWeek];
 
-    if(items == null) {
+    if(dashboardController.items == null || (dashboardController.items?.isEmpty??true)) {
       getItem().then((value) => Future.delayed(const Duration(milliseconds: 500),() => scrollToToday(),));
     }else{
       Future.delayed(const Duration(milliseconds: 500),() => scrollToToday());
     }
   }
 
+  void setToday(DateTime date){
+    today = date;
+    scrollToToday();
+    update();
+  }
 
   Future<void> getItem({bool isRefresh =false}) async{
     try {
@@ -45,6 +58,14 @@ class ArticleController extends GetxController {
       ApiResponse<List<ItemModel>?>? response = await dashboardRepository.getDate();
       if(response?.success==true){
         dashboardController.items = response?.data;
+
+        final now = DateTime.now();
+        if (DateTime(today.year, today.month, today.day) != DateTime(now.year, now.month, now.day)) {
+          today = now;
+          scrollToToday();
+        }
+
+
       }else{
         logError("Get Item Error =>${response?.errorMessage}");
       }
@@ -57,7 +78,7 @@ class ArticleController extends GetxController {
   }
 
   void scrollToToday() {
-    int todayIndex = days.indexOf(today);
+    int todayIndex = days.indexWhere((element) => DateTime(element.year,element.month,element.day) ==  DateTime(today.year,today.month,today.day));
     if (todayIndex >= 0) {
       double screenWidth = Get.width;
       double itemWidth = screenWidth / 7.8; // Assuming 7 items visible
@@ -79,6 +100,7 @@ class ArticleController extends GetxController {
     update();
 
   }
+
 
 
 }

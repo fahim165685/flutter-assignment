@@ -30,6 +30,8 @@ class AssetsConstants {
 
   //SVG Image
   static const String doneSVGImage = "assets/images/done_image.svg";
+  static const String noInternetSVGImage = "assets/images/no_internet_image.svg";
+  static const String emptyItemSVGImage = "assets/images/empty_Item_image.svg";
 
   static const String placeholderImage = "assets/images/defoliate_image.jpg";
   static const String profileAvatarImage = "assets/images/profile_avatar.png";

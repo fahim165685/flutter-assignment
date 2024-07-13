@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -65,7 +64,7 @@ class AppHelper{
         titleText: const SizedBox.shrink(),
         messageText: Center(
           child: Text( bodyText,
-            style: Get.textTheme.bodySmall?.copyWith(color: ColorConstants.whiteColor)),
+            style: GoogleFonts.roboto(color: ColorConstants.whiteColor,fontSize: Dimens.fontSizeMedium)),
         ),
         snackPosition: SnackPosition.TOP,
         maxWidth: Get.width * 0.7,
@@ -145,7 +144,7 @@ class AppHelper{
 
                     Dimens.spaceH12,
                     CustomButton(onTap: () => Get.back(),
-                      padding: EdgeInsets.symmetric(horizontal: 35),
+                      padding: const EdgeInsets.symmetric(horizontal: 35),
                       text: "আরও যোগ করুন",borderRadius: BorderRadius.circular(8),)
 
 

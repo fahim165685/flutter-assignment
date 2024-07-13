@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../app_pkg.dart';
+import '../../app_network/controllers/app_network_controller.dart';
 
 class SplashController extends GetxController with GetTickerProviderStateMixin {
   late AnimationController animationController;
@@ -18,12 +19,18 @@ class SplashController extends GetxController with GetTickerProviderStateMixin {
   }
 
 
-  void route(){
-    Future.delayed(const Duration(seconds: 3),(){
+  Future<void> route() async{
+    await Future.delayed(const Duration(seconds: 3),()async{
       animationController.dispose();
-      Get.offAllNamed(Routes.DASHBOARD);
-
+      await Get.offAllNamed(Routes.DASHBOARD);
     });
+
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    Get.put(AppNetworkController(), permanent: true);
   }
 
 

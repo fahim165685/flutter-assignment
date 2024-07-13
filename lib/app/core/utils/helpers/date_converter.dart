@@ -23,12 +23,18 @@ class DateConverter {
     }
   }
 
-  static String? formatTimeStamp(String? time,{bool showAMPM = true}) {
+  static DateTime? convertTimeStampToDateTime(String? time,) {
     int? timestamp = int.tryParse(time??'');
-
     if(timestamp == null) return null;
 
-    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+    return DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+  }
+
+  static String? formatTimeStamp(String? time,{bool showAMPM = true}) {
+
+    DateTime? dateTime = convertTimeStampToDateTime(time);
+
+    if(dateTime == null) return null;
 
     String formattedTime = DateFormat('a h:mm',"bn").format(dateTime);
 

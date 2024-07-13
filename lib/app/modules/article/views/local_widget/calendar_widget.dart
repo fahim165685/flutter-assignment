@@ -46,7 +46,7 @@ class DateCart extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () => Get.find<ArticleController>().setToday(date),
           borderRadius: BorderRadius.circular(50),
           child: Container(
             decoration: BoxDecoration(
