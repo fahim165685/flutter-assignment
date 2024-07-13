@@ -30,7 +30,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Video
 
-[![Watch the video](assets/screenshot/thumbnail.png)](path_to_video.mp4)
+<div style="display: flex; justify-content: center;">
+  <a href="path_to_video.mp4">
+    <img src="assets/screenshot/thumbnail.png" alt="Video Thumbnail" width="250" />
+  </a>
+</div>
 
 ### Download
 
