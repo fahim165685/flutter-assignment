@@ -22,10 +22,10 @@ Click the button below to download the project files from Google Drive.
 </div>
 
 ### Video
-
 <div style="display: flex; justify-content: center; align-items: center; height: 300px;">
-  <a href="assets/screenshot/video.mp4">
-    <img src="assets/screenshot/thumbnail.png" alt="Video Thumbnail" width="250" />
-  </a>
+  <video width="320" height="240" controls>
+    <source src="assets/screenshot/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
