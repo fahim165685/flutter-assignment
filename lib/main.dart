@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get_storage/get_storage.dart';
 import 'app/app_pkg.dart';
@@ -12,6 +13,7 @@ Future<void> main()async {
   await GetStorage.init();
   await DependencyInjection.init();
   await initializeDateFormatting();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown,]);
   runApp(const MyApp());
   configLoading();
 

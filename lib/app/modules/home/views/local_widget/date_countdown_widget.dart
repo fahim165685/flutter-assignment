@@ -3,11 +3,9 @@ import 'package:flutter_assignment/app/app_pkg.dart';
 import 'package:get/get.dart';
 
 class DateCountdownWidget extends StatelessWidget {
-  final int years;
-  final int months;
-  final int days;
+  final DateTime dateCountdown;
 
-  const DateCountdownWidget({super.key, required this.years, required this.months, required this.days});
+  const DateCountdownWidget({super.key, required this.dateCountdown,});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +14,11 @@ class DateCountdownWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          DateUnitWidget(unit: 'বছর', value: years,),
+          DateUnitWidget(unit: 'বছর', value: dateCountdown.year),
           Dimens.spaceW6,
-          DateUnitWidget(unit: 'মাস', value: months,),
+          DateUnitWidget(unit: 'মাস', value: dateCountdown.month,),
           Dimens.spaceW6,
-          DateUnitWidget(unit: 'দিন', value: days,),
+          DateUnitWidget(unit: 'দিন', value: dateCountdown.day,),
         ],
       ),
     );

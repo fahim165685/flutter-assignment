@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_assignment/app/app_pkg.dart';
+import 'package:flutter_assignment/app/core/core.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -14,8 +15,8 @@ class HomeDurationWidget extends StatelessWidget {
     return Row(children: [
       Column(
         children: [
-          GradientCircularProgressIndicator(startDate: DateTime(2024, 5, 1), endDate: DateTime(2025, 2, 0 ),),
-          Dimens.spaceH8,
+          GradientCircularProgressIndicator(startDate: DateTime(2024, 1, 1), endDate: DateTime(2025, 3, 31),),
+          Dimens.spaceH12,
           Text("সময় অতিবাহিত",style: Get.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w700,),),
         ],
       ),
@@ -33,13 +34,13 @@ class HomeDurationWidget extends StatelessWidget {
                 SvgPicture.asset(AssetsConstants.calendarOutlineIcon,width: 14,height: 14,),
 
                 Dimens.spaceW6,
-                Expanded(child: Text("১ই জানুয়ারি ২০২৪ - ৩১ই জানুয়ারি ২০৩০", style: Get.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w500),)),
+                Expanded(child: Text(DateConverter.formatDateRangeInBengali(DateTime(2024, 1, 1), DateTime(2025, 3, 31)), style: Get.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w500),)),
             ],),
 
             Dimens.spaceH10,
             Text("আরও বাকি",style: Get.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w700,color: ColorConstants.roseRedColor),),
 
-            const DateCountdownWidget(years: 9, months: 8, days: 17)
+            DateCountdownWidget(dateCountdown: AppHelper.calculateDateDifference(startDate: DateTime(2024, 1, 1), endDate: DateTime(2025, 3, 31)),)
 
           ],
         ),

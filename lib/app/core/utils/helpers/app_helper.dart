@@ -119,6 +119,19 @@ class AppHelper{
     return input;
   }
 
+  static DateTime calculateDateDifference({required DateTime startDate , required DateTime endDate}) {
+    Duration difference = endDate.difference(startDate);
+
+    int years = difference.inDays ~/ 365;
+    int remainingDaysAfterYears = difference.inDays % 365;
+
+    int months = remainingDaysAfterYears ~/ 30;
+    int days = remainingDaysAfterYears % 30;
+
+     return DateTime(years, months,days);
+  }
+
+
   static Future<void> doneDialog()async {
     return Get.dialog(
         PopScope(

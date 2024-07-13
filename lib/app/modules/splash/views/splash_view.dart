@@ -18,7 +18,7 @@ class SplashView extends GetView<SplashController> {
               children: [
                 FadeTransition(
                     opacity: controller.opacityAnimation,
-                    child: FlutterLogo(size: Get.width*0.4,)),
+                    child: Image.asset('assets/icons/demo_icon.png',  width: Get.width*0.3,fit: BoxFit.cover,),),
 
                 Dimens.spaceH18,
                 Text(AppTranslations.flutterTask.tr, style: GoogleFonts.roboto(fontSize: Dimens.fontSizeExtraLarge,color: ColorConstants.darkGrayColor),)

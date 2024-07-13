@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_assignment/app/app_pkg.dart';
 import 'package:get/get.dart';
 
@@ -37,8 +39,12 @@ class GradientCircularProgressIndicator extends StatelessWidget {
             lineWidth: 12
           ),
         ),
-        Text("$remainingMonthsBangla মাস $remainingDaysBangla দিন",
-            style: Get.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
+        SizedBox(
+          width: 82, child: Center(
+            child: Text("$remainingMonthsBangla মাস $remainingDaysBangla দিন",
+                style: Get.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
+          ),
+        ),
       ],
     );
   }

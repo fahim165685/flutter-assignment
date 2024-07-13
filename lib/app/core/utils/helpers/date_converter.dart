@@ -46,5 +46,27 @@ class DateConverter {
     return "$formattedTime মি.";
   }
 
+  static String _convertToBengaliNumerals(int number) {
+    const List<String> bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+    return number.toString().split('').map((digit) => bengaliDigits[int.parse(digit)]).join();
+  }
+
+  static String _getFormattedDateInBengali(DateTime date) {
+    final int day = date.day;
+    final String month = DateFormat('MMMM', 'bn').format(date);
+    final int year = date.year;
+
+    final String dayInBengali = _convertToBengaliNumerals(day);
+    final String yearInBengali = _convertToBengaliNumerals(year);
+
+    return '$dayInBengaliই $month $yearInBengali';
+  }
+
+  static String formatDateRangeInBengali(DateTime startDate, DateTime endDate) {
+    String start = _getFormattedDateInBengali(startDate);
+    String end = _getFormattedDateInBengali(endDate);
+    return '$start - $end';
+  }
+
 
 }
