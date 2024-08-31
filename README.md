@@ -25,3 +25,71 @@ Click the button below to download the project files from Google Drive.
 
 [![Watch the video](assets/screenshot/thumbnail.png)](https://github.com/user-attachments/assets/0e96aae5-2c71-40a6-84cb-066b9dc1f562)
 
+
+  ## Directory Structure
+    |-- lib
+    |-- main.dart
+    |-- app
+		|-- controller
+			|-- app_controller.dart
+			|-- common.controller.dart
+        |-- core
+            |-- theme
+				|-- app_theme.dart
+				|-- theme_service.dart
+			|-- utils
+				|-- extensions
+				|-- functions
+				|-- helpers
+				|-- values
+					|-- languages
+						|-- from
+							|-- bn_language.dart
+							|-- en_au.dart
+						|-- app_languages.dart
+						|-- app_translations.dart
+						|-- localization_service.dart
+					|-- api_url.dart
+					|-- app_const.dart
+					|-- assets.dart
+					|-- colors.dart 
+					|-- dimens.dart
+					|-- date_converter.dart
+					|-- storage.dart
+		|-- data
+			|-- api
+				|-- interceptors
+					|-- auth_interceptor.dart
+					|-- request_interceptor.dart
+					|-- response_interceptor.dart
+				|-- api_response.dart
+				|-- base_provider.dart	
+				|-- base_response.dart	
+				|-- base_result.dart				
+			|-- enums
+			|-- models
+				|-- request
+				|-- response
+				|-- ui
+			|-- providers
+			|-- repositories
+			|-- services
+				|-- notification_services.dart
+				|-- storage.service.dart
+			
+		|-- global_widgets
+		|-- modules
+			|-- home
+				|-- bindings
+				|-- controllers
+				|-- views
+					|-- local_widget
+					|-- home_view.dart
+    |-- routes
+        |-- app_pages.dart
+        |-- app_routes.dart
+	|-- app_binding.dart
+	|-- app_pkg.dart
+	|-- di.dart
+	|-- my_app.dart	
+
